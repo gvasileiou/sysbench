@@ -819,6 +819,8 @@ static db_error_t check_error(db_conn_t *sb_con, const char *func,
       case CR_SERVER_LOST:
       case CR_SERVER_GONE_ERROR:
       case CR_TCP_CONNECTION:
+      case ER_OPTION_PREVENTS_STATEMENT:
+      case CR_CONN_HOST_ERROR:
       case CR_SERVER_LOST_EXTENDED:
 
         *counter = SB_CNT_RECONNECT;

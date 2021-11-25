@@ -502,6 +502,8 @@ function sysbench.hooks.before_restart_event(errdesc)
    if errdesc.sql_errno == 2013 or -- CR_SERVER_LOST
       errdesc.sql_errno == 2055 or -- CR_SERVER_LOST_EXTENDED
       errdesc.sql_errno == 2006 or -- CR_SERVER_GONE_ERROR
+      errdesc.sql_errno == 1290 or -- ER_OPTION_PREVENTS_STATEMENT
+      errdesc.sql_errno == 2003 or -- CR_CONN_HOST_ERROR
       errdesc.sql_errno == 2011    -- CR_TCP_CONNECTION
    then
       close_statements()
